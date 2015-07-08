@@ -1,0 +1,7 @@
+<% if widget.tweet_id.present? %>
+  <div class="tweet_by_id" data-id="<%= widget.tweet_id %>" data-type="<%= widget.type %>"></div>
+<% else %>
+  <div class="alert alert-info">
+    No id ist present. Select it on details view.
+  </div>
+<% end %>
