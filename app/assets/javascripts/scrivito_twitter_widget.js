@@ -20,6 +20,8 @@ twttr.ready(function(twttr) {
     $.each($('.tweet_by_id'), function(index, elem) {
       var id = $(elem).data('id');
       var type = $(elem).data('type');
+
+      $(elem).html('');
       if(type == "video") {
         twttr.widgets.createVideo(id, elem)
       } else if(type == "timeline") {
