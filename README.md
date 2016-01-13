@@ -1,16 +1,13 @@
 # ScrivitoTwitterWidget
 
-A Widget for scrivito to insert a Facebok stream. You can add a page by its url, a video or a single post.
+A Scrivito widget that inserts a Twitter stream into a page. You can add a twitter timeline, or a video or a single tweet.
 
 ## Installation
 
-Add to your gemfile
+Add this line to your application's Gemfile:
 
     gem 'scrivito_twitter_widget'
 
-Add to your Javascript mainfest
+Add this line to your application JavaScript manifest:
 
     //= require scrivito_twitter_widget
-
-
-This project rocks and uses MIT-LICENSE.
