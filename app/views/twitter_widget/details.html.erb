@@ -1,13 +1,13 @@
-<%= scrivito_details_for 'Type Id' do %>
+<%= scrivito_details_for t('scrivito_timeline_widget.details.type', default: 'Type') do %>
   <%= scrivito_toggle_button_editor widget, :type %>
 <% end %>
-<%= scrivito_details_for 'Id' do %>
+
+<%= scrivito_details_for t('scrivito_timeline_widget.details.tweet_id', default: 'Id for tweet') do %>
   <%= scrivito_tag :div, widget, :tweet_id %>
 <% end %>
+
 <div class="alert alert-info">
-  If you select timline, you have to
   <a href="https://twitter.com/settings/widgets/new" target="_blank">
-    create a new timeline
+    <%= t('scrivito_timeline_widget.details.create', default: 'Create a new Timline.') %>
   </a>
-  on twitter and use the ID of it.
 </div>

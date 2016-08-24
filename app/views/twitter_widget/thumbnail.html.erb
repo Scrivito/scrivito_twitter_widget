@@ -1,3 +1,3 @@
-<%= scrivito_thumbnail 'Twitter widget', image_tag("widget_preview_twitter.png") do %>
-  Add tweets to the Page.
+<%= scrivito_thumbnail t('scrivito_twitter_widget.thumbnail.title', default: 'Twitter'), image_tag("widget_preview_twitter.png") do %>
+  <%= t('scrivito_twitter_widget.thumbnail.description', default: 'Add tweets to the Page') %>
 <% end %>
