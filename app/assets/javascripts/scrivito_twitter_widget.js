@@ -15,26 +15,28 @@ window.twttr = (function(d, s, id) {
   return t;
 }(document, "script", "twitter-wjs"));
 
-twttr.ready(function(twttr) {
-  scrivito.on('content', function(content) {
-    load_twitter(twttr);
+(function($, App) {
+  'use strict';
+
+  twttr.ready(function(twttr) {
+    scrivito.on('content', function(content) {
+      load_twitter(twttr);
+    });
   });
 
-  load_twitter(twttr);
-});
+  var load_twitter = function(twttr) {
+    $.each($('.tweet_by_id'), function(index, elem) {
+      var id = $(elem).data('id');
+      var type = $(elem).data('type');
 
-var load_twitter = function(twttr) {
-  $.each($('.tweet_by_id'), function(index, elem) {
-    var id = $(elem).data('id');
-    var type = $(elem).data('type');
-
-    $(elem).html('');
-    if(type == "video") {
-      twttr.widgets.createVideo(id, elem)
-    } else if(type == "timeline") {
-      twttr.widgets.createTimeline(id, elem)
-    } else {
-      twttr.widgets.createTweet(id, elem)
-    }
-  });
-}
+      $(elem).html('');
+      if(type == "video") {
+        twttr.widgets.createVideo(id, elem)
+      } else if(type == "timeline") {
+        twttr.widgets.createTimeline(id, elem)
+      } else {
+        twttr.widgets.createTweet(id, elem)
+      }
+    });
+  }
+})(jQuery, this);
