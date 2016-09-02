@@ -18,8 +18,8 @@ window.twttr = (function(d, s, id) {
 (function($, App) {
   'use strict';
 
-  twttr.ready(function(twttr) {
-    scrivito.on('content', function(content) {
+  scrivito.on('content', function(content) {
+    twttr.ready(function(twttr) {
       load_twitter(twttr);
     });
   });
