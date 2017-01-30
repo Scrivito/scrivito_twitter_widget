@@ -30,12 +30,32 @@ window.twttr = (function(d, s, id) {
       var type = $(elem).data('type');
 
       $(elem).html('');
-      if(type == "video") {
-        twttr.widgets.createVideo(id, elem)
-      } else if(type == "timeline") {
-        twttr.widgets.createTimeline(id, elem)
+      if(type == "timeline") {
+        var sourceType = $(elem).data('source-type');
+
+        var options = {
+          sourceType: sourceType,
+        };
+
+        var key = 'screenName';
+        key = sourceType == 'collection' ? 'id' : key
+        key = sourceType == 'widget' ? 'widgetId' : key
+
+        options[key] = id;
+        twttr.widgets.createTimeline(options,
+        elem,
+        {
+          chrome: $(elem).data('chrome'),
+          height: $(elem).data('height'),
+          tweetLimit: $(elem).data('limit')
+        })
       } else {
-        twttr.widgets.createTweet(id, elem)
+        twttr.widgets.createTweet(id, elem, {
+          conversation: $(elem).data('conversation'),
+          cards: $(elem).data('cards'),
+          align: $(elem).data('align'),
+          theme: $(elem).data('theme')
+        })
       }
     });
   }

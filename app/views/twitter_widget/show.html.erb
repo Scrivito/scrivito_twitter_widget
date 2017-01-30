@@ -1,5 +1,5 @@
 <% if widget.tweet_id.present? %>
-  <div class="tweet_by_id" data-id="<%= widget.tweet_id %>" data-type="<%= widget.type %>"></div>
+  <%= content_tag :div, '', data: widget.data_attributes, class: 'tweet_by_id' %>
 <% else %>
   <div class="alert alert-info">
     <%= t('scrivito_twitter_widget.details.no_tweet_id', default: 'No id is present. Insert one in details view.') %>

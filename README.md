@@ -24,7 +24,15 @@ en:
       description: Add tweets to the Page
     details:
       type: Type
-      tweet_id: Id for Tweet
+      tweet_id: Id for tweet or twittername for timeline
       create: Create a new Timline
       no_tweet_id: No id is present. Insert one in details view.
+      timeline: Timeline
+      chrome: Toggle design elements
+      height: Height
+      limit: Tweet limit
+      conversation: Show conversation
+      cards: Show images, videos, text by twitter cards
+      align: Alignment
+      theme: Theme
 ```

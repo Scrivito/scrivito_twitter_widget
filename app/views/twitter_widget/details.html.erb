@@ -2,12 +2,60 @@
   <%= scrivito_toggle_button_editor widget, :type %>
 <% end %>
 
-<%= scrivito_details_for t('scrivito_timeline_widget.details.tweet_id', default: 'Id for tweet') do %>
+<%= scrivito_details_for t('scrivito_timeline_widget.details.tweet_id', default: 'Id for tweet or twittername for timeline') do %>
   <%= scrivito_tag :div, widget, :tweet_id %>
 <% end %>
 
-<div class="alert alert-info">
-  <a href="https://twitter.com/settings/widgets/new" target="_blank">
-    <%= t('scrivito_timeline_widget.details.create', default: 'Create a new Timline.') %>
-  </a>
-</div>
+<%= scrivito_details_for t('scrivito_timeline_widget.details.tweet', default: 'Tweet') do %>
+  <%= scrivito_details_for t('scrivito_timeline_widget.details.conversation', default: 'Show conversation') do %>
+    <%= scrivito_tag :div, widget, :conversation %>
+  <% end %>
+
+  <%= scrivito_details_for t('scrivito_timeline_widget.details.cards', default: 'Show images, videos, text by twitter cards') do %>
+    <%= scrivito_tag :div, widget, :cards %>
+  <% end %>
+
+  <%= scrivito_details_for t('scrivito_timeline_widget.details.theme', default: 'Theme') do %>
+    <%= scrivito_tag :div, widget, :theme %>
+  <% end %>
+
+  <%= scrivito_details_for t('scrivito_timeline_widget.details.align', default: 'Alignment') do %>
+    <%= scrivito_tag :div, widget, :align %>
+  <% end %>
+<% end %>
+
+<%= scrivito_details_for t('scrivito_timeline_widget.details.timeline', default: 'Timeline') do %>
+  <%= scrivito_details_for t('scrivito_timeline_widget.details.limit', default: 'Tweet limit') do %>
+    <%= scrivito_tag :div, widget, :source_type %>
+    <div class="alert alert-info">
+      <p>For type profile or likes you have to use a twitter username e.g. scrivito.</p>
+      <p>For type widget or collection you have to use the id of it.</p>
+      <p>You can create a new widget at the twitter <a href="https://twitter.com/settings/widgets" target="_blank">preference page</a> when you are logged in.</p>
+    </div>
+  <% end %>
+
+  <%= scrivito_details_for t('scrivito_timeline_widget.details.chrome', default: 'Toggle design elements') do %>
+    <%= scrivito_tag :div, widget, :chrome %>
+  <% end %>
+
+  <%= scrivito_details_for t('scrivito_timeline_widget.details.height', default: 'Height') do %>
+    <%= scrivito_tag :div, widget, :height, {data: {
+      scrivito_editors_min: 0,
+      scrivito_editors_max: 2000,
+      scrivito_editors_step: 10,
+      scrivito_editors_allow_delete: false,
+      }
+    } %>
+  <% end %>
+
+  <%= scrivito_details_for t('scrivito_timeline_widget.details.limit', default: 'Tweet limit') do %>
+    <%= scrivito_tag :div, widget, :limit, {data: {
+      scrivito_editors_min: 1,
+      scrivito_editors_max: 20,
+      scrivito_editors_step: 1,
+      scrivito_editors_allow_delete: false,
+      }
+    } %>
+  <% end %>
+<% end %>
+
